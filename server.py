@@ -32,14 +32,20 @@ def set_ip():
 
 def send():
     if str(edit_text.get()).strip() != "":
-        message = str.encode(edit_text.get())
-        #converting it into numb
-        hex_data   = binascii.hexlify(message)
-        plain_text = int(hex_data, 16)
+        print(str(edit_text.get()))
+        text=str(edit_text.get())
+        message=alphabet.alphabet(str(edit_text.get()))
+        plain_text=int("".join(map(str,charConversion.char_conversion(message))))
+        # message = str.encode(edit_text.get())
+    
+        # hex_data   = binascii.hexlify(message)
+        # plain_text = int(hex_data, 16)
+        print(plain_text)
         ctt=rsa.encrypt(plain_text,pkey)
+        print(ctt)
         conn.send(str(ctt).encode())
         # scrollbar:
-        listbox.insert(END, message)
+        listbox.insert(END,  text)
         edit_text.delete(0, END)
 
 

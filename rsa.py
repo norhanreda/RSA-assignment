@@ -69,5 +69,5 @@ def encrypt(plain_text, package):
 def decrypt(msg_ciphertext, package):
     d, n = package
     msg_plaintext = pow(msg_ciphertext, d, n)
-    return binascii.unhexlify(hex(msg_plaintext)[2:]).decode()
+    return  msg_plaintext
 

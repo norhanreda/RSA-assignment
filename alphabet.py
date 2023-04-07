@@ -11,4 +11,19 @@ def alphabet(message):
             x=36
         new_message.append(x)
     return(new_message)
-print(alphabet('hi s7'))
+# print(alphabet('hi s7'))
+
+
+def dealphabet(message):
+    new_message=[]
+    for i in range(0,len(message)):
+        x=message[i]
+        if(message[i]>=0 and message[i]<=9):
+            x+=48
+        elif(message[i]>=10 and message[i]<=35):
+            x+=87
+        else:
+            x=32
+        new_message.append(chr(x))
+    return(new_message)
+# print(dealphabet([17, 18, 36, 28, 7])) 
