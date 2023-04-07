@@ -1,10 +1,8 @@
 import socket
 import threading
-import time
 from tkinter import *
 import pickle
 import rsa
-import binascii
 import charConversion
 import alphabet
 
