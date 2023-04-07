@@ -32,17 +32,13 @@ def set_ip():
 
 def send():
     if str(edit_text.get()).strip() != "":
-        print(str(edit_text.get()))
+        #print(str(edit_text.get()))
         text=str(edit_text.get())
         message=alphabet.alphabet(str(edit_text.get()))
         plain_text=int("".join(map(str,charConversion.char_conversion(message))))
-        # message = str.encode(edit_text.get())
-    
-        # hex_data   = binascii.hexlify(message)
-        # plain_text = int(hex_data, 16)
-        print(plain_text)
+        #print(plain_text)
         ctt=rsa.encrypt(plain_text,pkey)
-        print(ctt)
+        #print(ctt)
         conn.send(str(ctt).encode())
         # scrollbar:
         listbox.insert(END,  text)
@@ -56,10 +52,15 @@ def send():
 def recv():
     while True:
         response_message =int(conn.recv(1024).decode())
-        print(response_message)
+        #print(response_message)
         decrypted_msg = rsa.decrypt(response_message, private)
         # scrollbar:
-        listbox.insert(END, name1 +" : "+ str(decrypted_msg))
+        #print(decrypted_msg)
+        decrypted_msg=charConversion.char_decoding(decrypted_msg)
+        decrypted_msg=alphabet.dealphabet(decrypted_msg)
+        #print(decrypted_msg)
+        # scrollbar:
+        listbox.insert(END, name1 +" : "+ str("".join(decrypted_msg)))
         edit_text.delete(0, END)
 
 
