@@ -4,8 +4,6 @@ import random
 from random import randint as rand
 from random import getrandbits
 import sympy
-import time
-import binascii
 
 def gcd(a, b):
     if b == 0:

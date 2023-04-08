@@ -28,6 +28,7 @@ def set_ip():
 def send():
     if str(edit_text.get()).strip() != "":
         #print(str(edit_text.get()))
+        #print(sizeof(str(edit_text.get())))
         text=str(edit_text.get())
         message=alphabet.alphabet(str(edit_text.get()))
         plain_text=int("".join(map(str,charConversion.char_conversion(message))))
@@ -37,7 +38,11 @@ def send():
         # scrollbar:
         listbox.insert(END,text)
         edit_text.delete(0, END)
-
+        f = open("alice.txt", "w")
+        f.write(public)
+        f.write(plain_text)
+        f.write(ctt)
+        f.close()
 
 def recv():
     while True:

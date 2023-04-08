@@ -41,6 +41,11 @@ def send():
         # scrollbar:
         listbox.insert(END,  text)
         edit_text.delete(0, END)
+        f = open("bob.txt", "w")
+        f.write(public)
+        f.write(plain_text)
+        f.write(ctt)
+        f.close()
 
 
     # after sent message

@@ -15,7 +15,7 @@ def char_conversion(message):
             sum+=message[j]*(37**(k))
             k-=1
         array_sum.append(sum)
-    print(array_sum)      
+    #print(array_sum)      
     return  array_sum
     
 # char_conversion([17, 18, 36, 28, 7,8, 5, 25, 16, 35])          
@@ -25,9 +25,9 @@ def char_decoding(message):
      message=str(message)
      for k in range(0,len(message),8):
        x=int(message[k:k+8])
-       print(x)
+       #print(x)
        message_arr.append(x)
-     print(message_arr)  
+     #print(message_arr)  
      decode=[]
      for i in range(0,len(message_arr)):
         for j in range(4,-1,-1):
