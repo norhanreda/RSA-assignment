@@ -39,9 +39,9 @@ def send():
         listbox.insert(END,text)
         edit_text.delete(0, END)
         f = open("alice.txt", "w")
-        f.write(public)
-        f.write(plain_text)
-        f.write(ctt)
+        f.write(str(public))
+        f.write(str(plain_text))
+        f.write(str(ctt))
         f.close()
 
 def recv():
