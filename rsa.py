@@ -49,7 +49,8 @@ def generate_keypair(keysize):
     p = generate_prime(keysize)
     q = generate_prime(keysize)
     n = p * q
-    phi = (p-1)*(q-1)//gcd(p-1, q-1)
+    #phi = (p-1)*(q-1)//gcd(p-1, q-1)
+    phi = (p-1)*(q-1)
     e = sympy.randprime(1,phi)
     d = mod_inverse(e,phi)
     if e != d:

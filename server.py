@@ -7,7 +7,7 @@ import charConversion
 import alphabet
 import pandas as pd
 name=input("enter your name : ")
-public, private = rsa.generate_keypair(1024)
+public, private = rsa.generate_keypair(16)
 msg=pickle.dumps(public)
 #print(public[0])
 def set_ip():
@@ -42,9 +42,11 @@ def send():
         listbox.insert(END,  text)
         edit_text.delete(0, END)
         arr_data=[]
-        arr_data.append(public)
-        arr_data.append(plain_text)
-        arr_data.append(ctt)
+        arr_data.append(str(public[0]))
+        arr_data.append(str(plain_text))
+        arr_data.append(str(ctt))
+        arr_data.append(str(public[1]))
+        arr_data.append(str(name))
         my_df = pd.DataFrame(arr_data)
         my_df.to_csv('bob.csv',header = False, index= False)
         # f = open("bob.txt", "w")
