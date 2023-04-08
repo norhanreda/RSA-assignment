@@ -5,7 +5,7 @@ import pickle
 import rsa
 import charConversion
 import alphabet
-
+import pandas as pd
 name=input("enter your name : ")
 public, private = rsa.generate_keypair(1024)
 msg=pickle.dumps(public)
@@ -38,11 +38,12 @@ def send():
         # scrollbar:
         listbox.insert(END,text)
         edit_text.delete(0, END)
-        f = open("alice.txt", "w")
-        f.write(str(public))
-        f.write(str(plain_text))
-        f.write(str(ctt))
-        f.close()
+        arr_data=[]
+        arr_data.append(public)
+        arr_data.append(plain_text)
+        arr_data.append(ctt)
+        my_df = pd.DataFrame(arr_data)
+        my_df.to_csv('alice.csv',header = False, index= False)
 
 def recv():
     while True:
