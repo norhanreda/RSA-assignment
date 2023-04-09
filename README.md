@@ -13,7 +13,7 @@ python3 client.py
 
 # video
 
-contributors"></a></h2>
+<contributors"></a></h2>
 <table>
   <tbody><tr>
     <td align="center">
