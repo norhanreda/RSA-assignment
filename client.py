@@ -7,7 +7,8 @@ import charConversion
 import alphabet
 import pandas as pd
 name=input("enter your name : ")
-public, private = rsa.generate_keypair(16)
+key_size=input("enter the key size : ")
+public, private = rsa.generate_keypair(int(key_size))
 msg=pickle.dumps(public)
 #print(public[0])
 def set_ip():
