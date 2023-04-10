@@ -1,7 +1,6 @@
 import rsa
 import pandas as pd
 import numpy as np
-import math
 import decimal 
 import time
 # def attak(n,c,M,p1,p2):

@@ -11,7 +11,7 @@ def alphabet(message):
             x=36
         new_message.append(x)
     return(new_message)
-print(alphabet('hello how are you'))
+#print(alphabet('hello how are you'))
 
 
 def dealphabet(message):
