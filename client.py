@@ -6,6 +6,7 @@ import rsa
 import charConversion
 import alphabet
 import pandas as pd
+import time
 name=input("enter your name : ")
 key_size=input("enter the key size : ")
 public, private = rsa.generate_keypair(int(key_size))
@@ -37,14 +38,18 @@ def send():
         #plain_text=int(charConversion.char_conversion(message))
         #print(plain_text)
         plain_text=[]
+        #print(message)
+        #print(message_arr)
         for i in range(0,len(message_arr)):
 
             ctt=rsa.encrypt(message_arr[i],pkey)
             #print(ctt)
             client.send(str(ctt).encode())
+            time.sleep(1)
             plain_text.append(ctt)
         # scrollbar:
         client.send(('ack').encode())
+        time.sleep(1)
         plain_text=int("".join(map(str,charConversion.char_conversion(plain_text))))
         # scrollbar:
         listbox.insert(END,text)
@@ -63,6 +68,7 @@ def recv():
         dec=[]
         response_message =client.recv(1024).decode()
         while(response_message != 'ack'):
+            #print(response_message)
             decrypted_msg = rsa.decrypt(int(float(response_message)), private)
             dec.append(decrypted_msg)
             response_message =client.recv(1024).decode()
@@ -70,7 +76,7 @@ def recv():
         #decrypted_msg = rsa.decrypt(response_message, private)
         # scrollbar:
         #print(decrypted_msg)
-        print(dec)
+        #print(dec)
         decrypted_msg=charConversion.char_decoding(dec)
         decrypted_msg=alphabet.dealphabet(decrypted_msg)
         #print(decrypted_msg)
