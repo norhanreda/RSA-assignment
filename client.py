@@ -45,7 +45,7 @@ def send():
             ctt=rsa.encrypt(message_arr[i],pkey)
             #print(ctt)
             client.send(str(ctt).encode())
-            time.sleep(0.1)
+            time.sleep(1)
             plain_text.append(ctt)
         # scrollbar:
         client.send(('ack').encode())
