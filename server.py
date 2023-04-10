@@ -47,11 +47,11 @@ def send():
             ctt=rsa.encrypt(message_arr[i],pkey)
             #print(ctt)
             conn.send(str(ctt).encode())
-            time.sleep(1)
+            time.sleep(0.1)
             plain_text.append(ctt)
         # scrollbar:
         conn.send(('ack').encode())
-        time.sleep(1)
+        # time.sleep(1)
         plain_text=int("".join(map(str,charConversion.char_conversion(plain_text))))
         listbox.insert(END,  text)
         edit_text.delete(0, END)
@@ -87,7 +87,7 @@ def recv():
         # scrollbar:
         #print(decrypted_msg)
         print(dec)
-        decrypted_msg=charConversion.char_decoding(dec)
+        #decrypted_msg=charConversion.char_decoding(dec)
         decrypted_msg=alphabet.dealphabet(decrypted_msg)
         #print(decrypted_msg)
         # scrollbar:

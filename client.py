@@ -45,11 +45,11 @@ def send():
             ctt=rsa.encrypt(message_arr[i],pkey)
             #print(ctt)
             client.send(str(ctt).encode())
-            time.sleep(1)
+            time.sleep(0.1)
             plain_text.append(ctt)
         # scrollbar:
         client.send(('ack').encode())
-        time.sleep(1)
+        # time.sleep(1)
         plain_text=int("".join(map(str,charConversion.char_conversion(plain_text))))
         # scrollbar:
         listbox.insert(END,text)
