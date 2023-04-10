@@ -33,13 +33,23 @@ def send():
     if str(edit_text.get()).strip() != "":
         #print(str(edit_text.get()))
         text=str(edit_text.get())
-        message=alphabet.alphabet(str(edit_text.get()))
-        plain_text=int("".join(map(str,charConversion.char_conversion(message))))
+        message=alphabet.alphabet(text)
+        message_arr=charConversion.char_conversion(message)
+        #plain_text=int("".join(map(str,charConversion.char_conversion(message))))
+        #plain_text=int(charConversion.char_conversion(message))
         #print(plain_text)
-        ctt=rsa.encrypt(plain_text,pkey)
-        #print(ctt)
-        conn.send(str(ctt).encode())
+        plain_text=[]
+        print(message)
+        print(message_arr)
+        for i in range(0,len(message_arr)):
+
+            ctt=rsa.encrypt(message_arr[i],pkey)
+            #print(ctt)
+            conn.send(str(ctt).encode())
+            plain_text.append(ctt)
         # scrollbar:
+        conn.send(('ack').encode())
+        plain_text=int("".join(map(str,charConversion.char_conversion(plain_text))))
         listbox.insert(END,  text)
         edit_text.delete(0, END)
         arr_data=[]
@@ -61,12 +71,20 @@ def send():
 
 def recv():
     while True:
-        response_message =int(conn.recv(1024).decode())
+
+        #response_message =int(conn.recv(1024).decode())
+        dec=[]
+        response_message =conn.recv(1024).decode()
+        while(response_message != 'ack'):
+            decrypted_msg = rsa.decrypt(int(float(response_message)), private)
+            dec.append(decrypted_msg)
+            response_message =conn.recv(1024).decode()
         #print(response_message)
-        decrypted_msg = rsa.decrypt(response_message, private)
+        #decrypted_msg = rsa.decrypt(response_message, private)
         # scrollbar:
         #print(decrypted_msg)
-        decrypted_msg=charConversion.char_decoding(decrypted_msg)
+        print(dec)
+        decrypted_msg=charConversion.char_decoding(dec)
         decrypted_msg=alphabet.dealphabet(decrypted_msg)
         #print(decrypted_msg)
         # scrollbar:

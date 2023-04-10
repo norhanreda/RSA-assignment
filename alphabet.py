@@ -11,7 +11,7 @@ def alphabet(message):
             x=36
         new_message.append(x)
     return(new_message)
-# print(alphabet('hi s7'))
+print(alphabet('hello how are you'))
 
 
 def dealphabet(message):
@@ -27,3 +27,4 @@ def dealphabet(message):
         new_message.append(chr(x))
     return(new_message)
 # print(dealphabet([17, 18, 36, 28, 7])) 
+#print(dealphabet([14, 14, 14, 14, 22, 0, 12, 11, 31, 28])) 
