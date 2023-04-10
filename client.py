@@ -34,30 +34,30 @@ def send():
         text=str(edit_text.get())
         message=alphabet.alphabet(text)
         message_arr=charConversion.char_conversion(message)
-        #plain_text=int("".join(map(str,charConversion.char_conversion(message))))
+        plain_text=int("".join(map(str,charConversion.char_conversion(message))))
         #plain_text=int(charConversion.char_conversion(message))
         #print(plain_text)
-        plain_text=[]
+        cipher_text=[]
         #print(message)
         #print(message_arr)
         for i in range(0,len(message_arr)):
 
             ctt=rsa.encrypt(message_arr[i],pkey)
+            cipher_text.append(ctt)
             #print(ctt)
             client.send(str(ctt).encode())
             time.sleep(0.1)
-            plain_text.append(ctt)
         # scrollbar:
         client.send(('ack').encode())
         # time.sleep(1)
-        plain_text=int("".join(map(str,charConversion.char_conversion(plain_text))))
+        cipher_text=int("".join(map(str,(cipher_text))))
         # scrollbar:
         listbox.insert(END,text)
         edit_text.delete(0, END)
         arr_data=[]
         arr_data.append(str(public[0]))
         arr_data.append(str(plain_text))
-        arr_data.append(str(ctt))
+        arr_data.append(str(cipher_text))
         arr_data.append(str(public[1]))
         arr_data.append(str(name))
         my_df = pd.DataFrame(arr_data)
