@@ -10,6 +10,7 @@ python3 server.py
 python3 client.py
 ```
 # screenshots
+![image](https://user-images.githubusercontent.com/88630231/230954355-0b8dd204-158c-44d5-b495-03543b2a2b2d.png)
 
 # video
 
