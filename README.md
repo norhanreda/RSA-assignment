@@ -18,7 +18,11 @@ python3 client.py
 
 # encryption analysis
 
+![enc](https://user-images.githubusercontent.com/88630231/231258320-2f006eeb-c727-4f04-b38a-25a37896a13b.png)
+
 # decryption analysis
+
+![dec](https://user-images.githubusercontent.com/88630231/231258374-85efd9de-fb86-40c1-bec0-fdc3e5b04454.png)
 
 # attack analysis
 
