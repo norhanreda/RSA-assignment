@@ -38,18 +38,18 @@ def send():
         #plain_text=int(charConversion.char_conversion(message))
         #print(plain_text)
         cipher_text=[]
-        #print(message)
-        #print(message_arr)
+        print("alphabet",message)
+        print("conversion",message_arr)
         for i in range(0,len(message_arr)):
 
             ctt=rsa.encrypt(message_arr[i],pkey)
             cipher_text.append(ctt)
-            #print(ctt)
+            # print("cipher",ctt)
             client.send(str(ctt).encode())
-            time.sleep(0.1)
+            time.sleep(1)
         # scrollbar:
         client.send(('ack').encode())
-        # time.sleep(1)
+        time.sleep(1)
         cipher_text=int("".join(map(str,(cipher_text))))
         # scrollbar:
         listbox.insert(END,text)
@@ -69,14 +69,14 @@ def recv():
         response_message =client.recv(1024).decode()
         while(response_message != 'ack'):
             #print(response_message)
-            decrypted_msg = rsa.decrypt(int(float(response_message)), private)
+            decrypted_msg = rsa.decrypt(int((response_message)), private)
             dec.append(decrypted_msg)
             response_message =client.recv(1024).decode()
         #print(response_message)
         #decrypted_msg = rsa.decrypt(response_message, private)
         # scrollbar:
         #print(decrypted_msg)
-        #print(dec)
+        print(dec)
         decrypted_msg=charConversion.char_decoding(dec)
         decrypted_msg=alphabet.dealphabet(decrypted_msg)
         #print(decrypted_msg)

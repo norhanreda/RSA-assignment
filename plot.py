@@ -6,42 +6,39 @@ def plot_attack():
     x=[]
     for i in range(27,36):
         x.append(i)
-    #y=[10.996012449264526,20.09508490562439,39.23932504653931,62.10986256599426,281.43727254867554,1043.6157057285309,1876.9959406852722,1986.2639257907867,4889.491338253021 ]
     y=[]
     y=np.asarray(y)
     #y=y/3600
     plt.plot(x, y)
     plt.title("attacking analysis")
-    plt.xlabel("numner of bits of key ")
+    plt.xlabel("key size in bits")
     plt.ylabel("time for attacking in sec")
     plt.show()
 
-plot_attack()   
+# plot_attack()   
 
 
-def plot_encryption_insec():
-    x=[]
-    for i in range(27,35):
-        x.append(i)
-    y=[10.996012449264526,20.09508490562439,39.23932504653931,62.10986256599426,281.43727254867554,1043.6157057285309,1876.9959406852722,1986.2639257907867 ]
+def plot_encryption():
+    x=[32,64,128,256,512,1024]
+   
+    y=[0.0,0.0009999275207519531,0.0009937286376953125,0.0009791851043701172,0.002000570297241211,0.007999420166015625]
     plt.plot(x, y)
     plt.title("encryption analysis")
-    plt.xlabel("numner of bits of key ")
+    plt.xlabel("key size in bits ")
     plt.ylabel("time for encryption in sec")
     plt.show()
 
-#plot_encryption_insec()   
+plot_encryption()   
 
-def plot_decryption_insec():
-    x=[]
-    for i in range(27,35):
-        x.append(i)
-    y=[10.996012449264526,20.09508490562439,39.23932504653931,62.10986256599426,281.43727254867554,1043.6157057285309,1876.9959406852722,1986.2639257907867 ]
+def plot_decryption():
+    x=[32,64,128,256,512,1024]
+   
+    y=[0.0,0.0,0.0,0.0009984970092773438,0.001375436782836914,0.007000446319580078]
    
     plt.plot(x, y)
     plt.title("decryption analysis")
-    plt.xlabel("numner of bits of key ")
+    plt.xlabel("key size in bits")
     plt.ylabel("time for decryption in sec")
     plt.show()
 
-#plot_decryption_insec()   
+plot_decryption()   

@@ -46,8 +46,12 @@ def generate_prime(bitlength):
 
 
 def generate_keypair(keysize):
-    p = generate_prime(keysize//2)
-    q = generate_prime(keysize//2)
+    if(keysize%2==0):
+        p = generate_prime(int(keysize/2))
+        q = generate_prime(int(keysize/2))
+    else:
+        p = generate_prime(int(keysize/2)+1)
+        q = generate_prime(int(keysize/2))   
     n = p * q
     #phi = (p-1)*(q-1)//gcd(p-1, q-1)
     phi = (p-1)*(q-1)
