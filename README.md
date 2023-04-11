@@ -15,7 +15,8 @@ python3 client.py
 # video
 
 # approach used for attacking
-
+Here I used mathmatics attack which is the prime factorization of n to p , q then I get phi and try to get d then i try to
+check that all is well by decrypting the ciphertext by the d that i get  before....................
 # encryption analysis
 
 ![enc](https://user-images.githubusercontent.com/88630231/231258320-2f006eeb-c727-4f04-b38a-25a37896a13b.png)
