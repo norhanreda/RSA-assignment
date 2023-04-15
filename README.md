@@ -1,4 +1,5 @@
 # RSA-assignment
+![image](https://user-images.githubusercontent.com/88630231/232247541-99aa1940-2dba-4d71-abee-bd9a01ec259b.png)
 
 ### To Run The porgram first Run The server and open a port for connection
 
@@ -13,6 +14,10 @@ python3 client.py
 ![image](https://user-images.githubusercontent.com/88630231/230954355-0b8dd204-158c-44d5-b495-03543b2a2b2d.png)
 
 # video
+
+
+https://user-images.githubusercontent.com/88630231/232247553-280e2bbf-08e8-4d2b-95f8-fb8503491101.mp4
+
 
 # approach used for attacking
 Here I used mathmatics attack which is the prime factorization of n to p , q then I get phi and try to get d then i try to
